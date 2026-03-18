@@ -1,109 +1,171 @@
-# Coworking
+# ESPAÑOL
 
-Portal donde publicar espacios de coworking, reservar y gestionar cada espacio.
+# 🌐 Innovaspace Coworking - moliverdev.netlify.app
 
-## Instalar
+Aplicación web fullstack que permite publicar, explorar y reservar espacios de coworking.  
 
-1. Instalar las dependencias mediante el comando `npm install` o `npm i`.
+## 🧾 Descripción
 
-2. Guardar el archivo `.env.example` como `.env` y cubrir los datos necesarios.
+Innovaspace Coworking es una plataforma donde los usuarios pueden registrarse, gestionar su perfil y realizar reservas en diferentes oficinas disponibles, mientras que los administradores pueden gestionar los espacios publicados.
 
-3. Ejecutar `npm run initDb` para crear las tablas necesarias en la base de datos.
+La aplicación está desarrollada con una arquitectura **client-server**, separando un frontend en React de una API REST construida con Node.js y Express, conectada a una base de datos relacional.
 
-4. Ejecutar `npm run dev` para lanzar el servidor.
+Este proyecto fue desarrollado inicialmente como **proyecto final de bootcamp en equipo** y posteriormente mejorado individualmente para su presentación en portfolio profesional.
 
-## Base de datos
+## 🚀 Características principales
 
-### users
+- Registro y autenticación de usuarios.
+- Activación de cuenta mediante código de registro.
+- Gestión de perfil de usuario y avatar.
+- Exploración de espacios de coworking disponibles.
+- Sistema de reservas con fechas de entrada y salida.
+- Sistema de valoración y comentarios sobre oficinas.
+- Panel de administración para gestionar espacios y reservas.
+- Recuperación de contraseña mediante e-mail.
 
-| Campo            | Tipo         | Descripción                           |
-| ---------------- | ------------ | ------------------------------------- |
-| id               | INT UNSIGNED | Identificador único del usuario       |
-| email            | VARCHAR(255) | Correo electrónico del usuario        |
-| username         | VARCHAR(255) | Nombre de usuario del usuario         |
-| password         | VARCHAR(255) | Contraseña del usuario (hash)         |
-| avatar           | VARCHAR(255) | URL del avatar del usuario            |
-| role             | ENUM         | Rol del usuario ("CLIENT" o "ADMIN")  |
-| active           | BOOLEAN      | Usuario activado o no (DEFAULT FALSE) |
-| registrationCode | CHAR(50)     | Codigo de registro                    |
-| recoverPassCode  | CHAR(50)     | Codigo de recuperacion de contraseña  |
-| createdAt        | DATETIME     | Fecha y hora de creación del usuario  |
+## 🛠️ Stack Tecnológico
 
-### offices
+- **React** con JSX
+- **Node.js** para el backend
+- **Express** para la API REST
+- **MySQL** como base de datos relacional
+- **JavaScript**
+- **CSS** modularizado
+- **React Context API**
+- **Vite** como bundler
+- **Netlify** para el despliegue frontend
+- **Render** para el despliegue backend
 
-| Campo       | Tipo          | Descripción                            |
-| ----------- | ------------- | -------------------------------------- |
-| id          | INT UNSIGNED  | Identificador único de la entrada      |
-| name        | VARCHAR(255)  | Nombre de la oficina                   |
-| description | VARCHAR(255)  | Descripción de la oficina              |
-| adress      | VARCHAR(255)  | Direccion de la oficina                |
-| workspace   | ENUM          | Tipo de oficina("OFFICE" o "DESK")     |
-| capacity    | INT UNSIGNED  | Capacidad                              |
-| price       | DECIMAL(10,2) | Precio del workspace                   |
-| createdAt   | DATETIME      | Fecha y hora de creación de la entrada |
+## 📂 Estructura del proyecto (resumida)
 
-### equipments
+# Frontend
+```
+client/
+├──src/
+|  ├── components/
+|  ├── contexts/   # Contexto de Autenticación
+|  ├── hooks/      # Hooks personalizados
+|  ├── pages/
+|  └── App.jsx
+├── .env.local     # Variables de entorno para el frontend
+└── styles/        # Archivos CSS por sección
+```
+# Backend
+```
+server/
+├──src/
+|  ├── controllers/ # Lógica de negocio
+|  ├── db/          # Base de datos y modelos
+|  ├── middlewares/ # Middlewares de autenticación
+|  ├── routes/      # Rutas de la API
+|  └── utils/       # Funciones auxiliares
+├── .env
+└── app.js
+```
 
-| Campo     | Tipo         | Descripción                         |
-| --------- | ------------ | ----------------------------------- |
-| id        | INT UNSIGNED | Identificador único de la entrada   |
-| name      | VARCHAR(255) | Nombre del equipamiento             |
-| createdAt | DATETIME     | Fecha y hora de creación de la foto |
+## 🌍 Demo online
 
-### officesEquipments
+🔗 [https://moliverdev.netlify.app](https://moliverdev.netlify.app)
+- Demo user:
+    - Email: demo@innovaspace.com
+    - Password: Demo1234
 
-| Campo       | Tipo         | Descripción                        |
-| ----------- | ------------ | ---------------------------------- |
-| id          | INT UNSIGNED | Identificador único de la entrada  |
-| idOffice    | INT UNSIGNED | Identificador de la entrada votada |
-| idEquipment | INT UNSIGNED | Identificador del usuario que votó |
-| createdAt   | DATETIME     | Fecha y hora de creación del voto  |
+## Instalación local
 
-### officePhotos
+Ver [INSTALLATION.md](INSTALLATION.md)
 
-| Campo     | Tipo         | Descripción                                            |
-| --------- | ------------ | ------------------------------------------------------ |
-| id        | INT UNSIGNED | Identificador único de la foto                         |
-| idOffice  | INT UNSIGNED | Identificador de la entrada a la que pertenece la foto |
-| name      | VARCHAR(255) | Nombre de la foto                                      |
-| createdAt | DATETIME     | Fecha y hora de creación de la foto                    |
+## 📬 Contacto
 
-### bookings
+- Portfolio: [moliverdev.netlify.app](https://moliverdev.netlify.app)
+- LinkedIn: [linkedin.com/in/moliverg](https://linkedin.com/in/moliverg)
+- Email: olivermauro@outlook.com
 
-| Campo     | Tipo         | Descripción                            |
-| --------- | ------------ | -------------------------------------- |
-| id        | INT UNSIGNED | Identificador único de la reserva      |
-| idUser    | INT UNSIGNED | Identificador único del usuario        |
-| idOffice  | INT UNSIGNED | Identificador de la oficina            |
-| checkIn   | DATETIME     | Hora de entrada                        |
-| checkOut  | DATETIME     | Hora de salida                         |
-| guest     | INT          | Numero de usuario                      |
-| vote      | TINYINT      | Calificacion dada                      |
-| comment   | VARCHAR(255) | Comentario sobre la reserva            |
-| createdAt | DATETIME     | Fecha y hora de creación de la entrada |
+## 📝 Licencia
 
-## Endpoints del usuario
+Este proyecto es de código abierto solo con fines de presentación. Derechos reservados © 2025.
 
-- **POST** - [`/users/register`] - Crea un nuevo usuario pendiente de activar. ✅
-- **PATCH** - [`/users/activate/:registrationCode`] - Activa a un usuario mediante un código de registro. ✅
-- **POST** - [`/users/login`] - Logea a un usuario retornando un token. ✅
-- **GET** - [`/users/profile`] - Retorna información privada del usuario con el id del token. ✅
-- **PATCH** - [`/users/editProfile`] - Permite actualizar el perfil del usuario. ✅
-- **PATCH** - [`/users/avatar`] - Permite actualizar el avatar del usuario. ✅
-- **GET** - [`/users/bookingsList`] - Retorna las reservas del usuario. ✅
-- **PUT** - [`/users/password/recover`] - Permite enviar un email de recuperación de contraseña. ✅
-- **PUT** - [`/users/password/reset/:recoverPassCode`] - Permite crear una nueva contraseña a partir de un código. ✅
+# ENGLISH
 
-## Endpoints de las oficinas
+# 🌐 Innovaspace Coworking - moliverdev.netlify.app
 
-- **POST** - [`/office/create`] - Crea una oficina. ✅
-- **PUT** - [`/office/edit/:idOffice`] - Permite editar una oficina. ✅
-- **GET** - [`/office/list`] - Retorna el listado de oficinas. ✅
-- **GET** - [`/office/equipments`] - Retorna los equipamientos filtrados con una palabra clave. ✅
-- **GET** - [`/office/:idOffice`] - Retorna una oficina en concreto por ID. ✅
-- **GET** - [`/office/:idOffice/equipments`] - Retorna los equipamientos de una oficina. ✅
-- **POST** - [`/office/:idOffice/booking`] - Permite reservar una oficina por ID. ✅
-- **PUT** - [`/office/:idOffice/booking/:idBooking`] - Permite al admin administrar las reservas.✅
-- **DELETE** - [`/office/:idOffice`] - Permite eliminar una oficina en concreto por ID. ✅
-- **DELETE** - [`/office/:idBooking/booking`] - Elimina una reserva. ✅
-- **PUT** - [`/office/:idOffice/:idBooking`] - Vota una oficina mediante una reserva (entre 1 y 5). ✅
+Fullstack web application that allows users to publish, explore and book coworking spaces.  
+
+## 🧾 Overview
+
+Innovaspace Coworking is a platform wheres users can explore available offices, check their details, make reservations and leave ratings or comments about their experience, while admins can manage the listed spaces.
+
+The application follows a **client-server architecture**, separating a React frontend from a REST API built with Node.js and Express connected to a relational database.
+
+This project was originally developed as a **team bootcamp final project** and later improved individually for portfolio presentation.
+
+## 🚀 Key Features
+
+- User registration and authentication.
+- Account activation via registration code.
+- User profile and avatar management.
+- Browse available coworking spaces.
+- Reservation system with check-in and check-out dates.
+- Office rating and comment system.
+- Admin management of offices and bookings.
+- Password recovery via email.
+
+## 🛠️ Tech Stack
+
+- **React** with JSX
+- **Node.js** for the backend
+- **Express** for the REST API
+- **MySQL** relational database
+- **JavaScript**
+- **Modular CSS**
+- **React Context API**
+- **Vite** as bundler
+- **Netlify** for frontend deployment
+- **Render** for backend deployment
+
+## 📂 Project Structure (brief)
+
+# Frontend
+```
+client/
+├──src/
+|  ├── components/
+|  ├── contexts/   # Auth context
+|  ├── hooks/      # Hooks personalizados
+|  ├── pages/      # App pages
+|  └── App.jsx
+├── .env.local     # Frontend environment variables
+└── styles/        # CSS files by section
+```
+# Backend
+```
+server/
+├──src/
+|  ├── controllers/ # Business logic
+|  ├── db/          # Database and models
+|  ├── middlewares/ # Authentication middlewares
+|  ├── routes/      # API routes
+|  └── utils/       # Helper functions
+├── .env            # Environment variables
+└── app.js          # Backend entry point
+```
+
+## 🌍 Online Demo
+
+🔗 [https://moliverdev.netlify.app](https://moliverdev.netlify.app)
+- Demo user:
+    - Email: demo@innovaspace.com
+    - Password: Demo1234
+
+## Local installation
+
+See [INSTALLATION.md](INSTALLATION.md)    
+
+## 📬 Contact
+
+- Portfolio: [moliverdev.netlify.app](https://moliverdev.netlify.app)
+- LinkedIn: [linkedin.com/in/moliverg](https://linkedin.com/in/moliverg)
+- Email: olivermauro@outlook.com
+
+## 📝 License
+
+This project is open for presentation purposes only. All rights reserved © 2025.
