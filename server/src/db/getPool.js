@@ -15,6 +15,9 @@ const getPool = async () => {
                 user: MYSQL_USER,
                 password: MYSQL_PASS,
                 timezone: 'Z',
+                ssl: {
+                    rejectUnauthorized: true,
+                },
             });
 
             // Con la conexión anterior creamos la base de datos si no existe.
@@ -27,6 +30,9 @@ const getPool = async () => {
                 password: MYSQL_PASS,
                 database: MYSQL_DB,
                 timezone: 'Z',
+                ssl: {
+                    rejectUnauthorized: true,
+                },
             });
         }
 
