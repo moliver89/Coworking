@@ -1,6 +1,6 @@
 # ESPAÑOL
 
-# 🌐 Innovaspace Coworking - moliverdev.netlify.app
+# 🌐 Innovaspace Coworking - innovaspace.netlify.app
 
 Aplicación web fullstack que permite publicar, explorar y reservar espacios de coworking.  
 
@@ -65,10 +65,10 @@ server/
 
 ## 🌍 Demo online
 
-🔗 [https://moliverdev.netlify.app](https://moliverdev.netlify.app)
+🔗 [innovaspace.netlify.app](https://innovaspace.netlify.app)
 - Demo user:
     - Email: demo@innovaspace.com
-    - Password: Demo1234
+    - Password: demo123
 
 ## Instalación local
 
@@ -86,7 +86,7 @@ Este proyecto es de código abierto solo con fines de presentación. Derechos re
 
 # ENGLISH
 
-# 🌐 Innovaspace Coworking - moliverdev.netlify.app
+# 🌐 Innovaspace Coworking - innovaspace.netlify.app
 
 Fullstack web application that allows users to publish, explore and book coworking spaces.  
 
@@ -151,10 +151,10 @@ server/
 
 ## 🌍 Online Demo
 
-🔗 [https://moliverdev.netlify.app](https://moliverdev.netlify.app)
+🔗 [https://innovaspace.netlify.app](https://innovaspace.netlify.app)
 - Demo user:
     - Email: demo@innovaspace.com
-    - Password: Demo1234
+    - Password: demo123
 
 ## Local installation
 
