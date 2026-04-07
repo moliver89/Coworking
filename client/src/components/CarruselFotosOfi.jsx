@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 // Importamos la URL del servidor.
-const { VITE_API_URL } = import.meta.env;
+const { VITE_API_URL, VITE_ASSETS_URL } = import.meta.env;
 
 const Carrusel = ({ images }) => {
   const sliderRef = useRef(null);
@@ -34,7 +34,7 @@ const Carrusel = ({ images }) => {
         {images.map((image) => (
           <div key={image.id} className='carrusel-slide'>
             <img
-              src={`${VITE_API_URL}/${image.name}`}
+              src={`${VITE_ASSETS_URL}/${image.name}`}
               alt={'Imagen del carrusel'}
               className='carrusel-image'
             />

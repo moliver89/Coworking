@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 // Importamos la URL del servidor.
-const { VITE_API_URL } = import.meta.env;
+const { VITE_API_URL, VITE_ASSETS_URL } = import.meta.env;
 
 const OfficeListPage = () => {
     const [offices, setOffices] = useState([]);
@@ -316,7 +316,7 @@ const OfficeListPage = () => {
                                 {office.photos && office.photos.length > 0 ? (
                                     <img
                                         className="olc-img"
-                                        src={`${VITE_API_URL}/${office.photos[0].name}`}
+                                        src={`${VITE_ASSETS_URL}/${office.photos[0].name}`}
                                         alt={`Foto ${office.photos[0].name}`}
                                     />
                                 ) : (

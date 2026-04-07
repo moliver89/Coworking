@@ -12,7 +12,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import moment from "moment";
 
 // Importamos la URL del servidor.
-const { VITE_API_URL } = import.meta.env;
+const { VITE_API_URL, VITE_ASSETS_URL } = import.meta.env;
 
 const BookingsListPage = () => {
     // Estado para controlar si se está cargando y si hay error.
@@ -128,7 +128,7 @@ const BookingsListPage = () => {
                             <div className="booking-image">
                                 {booking.photos && booking.photos.length > 0 ? (
                                     <img
-                                        src={`${VITE_API_URL}/${booking.photos[0].name}`}
+                                        src={`${VITE_ASSETS_URL}/${booking.photos[0].name}`}
                                         alt={`Foto ${booking.photos[0].name}`}
                                         className="booking-photo"
                                     />
