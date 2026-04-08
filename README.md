@@ -68,7 +68,7 @@ server/
 🔗 [innovaspace.netlify.app](https://innovaspace.netlify.app)
 - Demo user:
     - Email: demo@innovaspace.com
-    - Password: demo123
+    - Password: 123456
 
 ## Instalación local
 
@@ -154,7 +154,7 @@ server/
 🔗 [https://innovaspace.netlify.app](https://innovaspace.netlify.app)
 - Demo user:
     - Email: demo@innovaspace.com
-    - Password: demo123
+    - Password: 123456
 
 ## Local installation
 
